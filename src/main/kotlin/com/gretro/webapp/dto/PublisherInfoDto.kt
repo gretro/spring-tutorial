@@ -1,6 +1,6 @@
 package com.gretro.webapp.dto
 
-class PublisherDto {
+class PublisherInfoDto {
     var id: Long? = null
     var name: String? = null
     var address: String? = null
