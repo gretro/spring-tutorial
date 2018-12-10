@@ -7,7 +7,7 @@ class Book(var title: String?,
            var isbn: String?,
            @ManyToOne
            @JoinColumn(name = "publisher_id", nullable = false, updatable = true)
-           var publisher: Publisher,
+           var publisher: Publisher?,
            @ManyToMany
            @JoinTable(name = "author_book",
                    joinColumns = [JoinColumn(name = "book_id")],
@@ -17,6 +17,7 @@ class Book(var title: String?,
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long? = null
 
+    constructor(): this(null, null, null, HashSet())
     constructor(title: String, isbn: String, publisher: Publisher) : this(title, isbn, publisher, HashSet())
 
     override fun toString(): String {
